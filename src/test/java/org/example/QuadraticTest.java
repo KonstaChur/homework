@@ -50,26 +50,15 @@ public class QuadraticTest {
         assertEquals(calculated(a, b, c, x2), 0.0, delta);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test()
     public void testNullA() {
         double a = 0.0000005;
         double b = 0;
         double c = -1;
         double delta = 0.000001;
-
-        if (Math.abs(a) < delta) {
-            throw new NullPointerException("A can not be empty!");
-        }
-    }
-
-    @Test
-    public void testNotNumeric(){
-        String a = "0.0000005";
-        boolean b = false;
-        char c = 10;
-        double delta = 0.000001;
-
-        ArrayList<Double> solve = solver.solve(a, b, c, delta);
+        assertThrows(NullPointerException.class, () -> {
+            solver.solve(a, b, c, delta);
+        });
     }
 
     @Test

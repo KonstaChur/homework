@@ -13,8 +13,6 @@ public class Quadratic {
         double c = checkDouble(C);
         double delta = checkDouble(D);
 
-
-
         ArrayList<Double> solve = new ArrayList<>();
         double d = b * b - 4 * a * c;
 
